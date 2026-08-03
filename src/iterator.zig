@@ -12,6 +12,7 @@ pub fn Iterator(T: type) type {
         const Self = @This();
 
         pub fn init(rand: std.Random, items: []T) Self {
+            std.debug.assert(items.len != 0);
             rand.shuffle(T, items);
             return .{
                 .items = items,
