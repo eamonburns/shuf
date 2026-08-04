@@ -34,6 +34,8 @@ pub fn Iterator(T: type) type {
                 const shuf_offset = it.idx;
                 const shuf_len = it.items.len - it.threshold;
 
+                if (shuf_len == 0) return item; // There isn't anything to shuffle
+
                 for (1..shuf_len) |i| {
                     const j = it.rand.intRangeAtMost(usize, 0, i);
                     // i and j indices converted to ring buffer

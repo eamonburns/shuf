@@ -3,7 +3,12 @@
     .version = "0.0.0",
     .fingerprint = 0xe8930328e7152e7d, // Changing this has security and trust implications.
     .minimum_zig_version = "0.16.0",
-    .dependencies = .{},
+    .dependencies = .{
+        .crunch = .{
+            .url = "https://github.com/eamonburns/crunch/archive/5c28b3f788a02012f195a5fc59e98a11a2d19982.tar.gz",
+            .hash = "crunch-0.0.0-JqNNzY8pAADMS8qiTRaPTyz1JWJJER-Ahwe7ti_YIy-5",
+        },
+    },
     .paths = .{
         "build.zig",
         "build.zig.zon",

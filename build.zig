@@ -4,6 +4,8 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
+    const crunch_dep = b.dependency("crunch", .{});
+
     const mod = b.addModule("shuf", .{
         .root_source_file = b.path("src/root.zig"),
         .target = target,
@@ -17,6 +19,7 @@ pub fn build(b: *std.Build) void {
             .optimize = optimize,
             .imports = &.{
                 .{ .name = "shuf", .module = mod },
+                .{ .name = "crunch", .module = crunch_dep.module("crunch") },
             },
         }),
     });
