@@ -45,6 +45,7 @@ pub fn main(init: std.process.Init) !void {
 
         break :blk try arena.dupe([]const u8, lines.items);
     };
+    if (items.len == 0) return; // There are no lines to shuffle. Just return early
 
     const line_count = cmd.line_count orelse items.len;
 
